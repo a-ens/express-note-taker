@@ -1,14 +1,27 @@
 {
   "name": "express-note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "An app for note-taking",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
+  "author": "a-ens",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-ens/express-note-taker.git"
+  },
+  "keywords": [
+    "notes"
+  ],
+  "bugs": {
+    "url": "https://github.com/a-ens/express-note-taker/issues"
+  },
+  "homepage": "https://github.com/a-ens/express-note-taker/public/index.html"
 }
