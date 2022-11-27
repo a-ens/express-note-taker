@@ -12,5 +12,13 @@ app.get('/notes', (req, res) => {
 
 app.get('*', (req, res) => {
    res.sendFile(path.join(__dirname, '/index.html'));
-});   
+});
 
+app.get('/api/notes', (req, res) => {
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+      if (err) throw err;
+      var notes = JSON.parse(data);
+      res.json(notes);
+    });
+  });
+  
