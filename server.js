@@ -4,6 +4,10 @@ const path = require('path');
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send("Hello World!");
+  });
+
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
