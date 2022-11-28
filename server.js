@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/notes', (req, res) => {
-  res.send(path.join(__dirname, '/public/notes.html'))
+  res.send(path.join(__dirname, '/notes.html'))
 });
 
 app.get('*', (req, res) => {
