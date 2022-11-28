@@ -1,3 +1,4 @@
+// Importing some of the required modules
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -9,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(express.json());
 
+// POST route--for adding notes created by the user
 app.post('/api/notes', (req, res) => {
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) throw err;
@@ -22,10 +24,12 @@ app.post('/api/notes', (req, res) => {
   }); 
 });
 
+// GET route for individual notes by id
 app.get('api/notes/:id', (req, res) =>{
   res.json(notes[req.params.id]);
 });
 
+// Get route for retrieving all notes from the db
 app.get('/api/notes', (req, res) => {
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) throw err;
@@ -34,10 +38,12 @@ app.get('/api/notes', (req, res) => {
   });
 });
 
+// Get route for rendering the 'notes' page
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/notes.html'))
 });
 
+// GET route for rendering landing page
 app.get('*', (req, res) => {
    res.sendFile(path.join(__dirname, '/index.html'));
 });   
@@ -45,5 +51,3 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`App listening on PORT: ${PORT}`);
 });
-
-
