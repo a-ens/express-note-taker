@@ -1,18 +1,17 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
-
-app.get('/', (req, res) => {
-  res.send("Hello World!");
-});
 
 const PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send("Hello World!");
+});
 
 app.get('/notes', (req, res) => {
   res.send(path.join(__dirname, '/public/notes.html'))
